@@ -79,13 +79,14 @@ public class StudentManagement implements Management<Student> {
     }
 
     public void findMaxAvg() {
-        double max = 0;
+        double max = studentList.get(0).avg();
+        int index = 0;
         for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).avg() > max) ;
+            if (max < studentList.get(i).avg()) ;
             max = studentList.get(i).avg();
-            System.out.println(max);
+            index = i;
         }
-
+        System.out.println(studentList.get(index));
     }
 
 }

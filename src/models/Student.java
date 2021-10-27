@@ -41,13 +41,13 @@ public class Student extends Person {
     }
 
     public double avg() {
-        double avg = (mathScore + chemistryScore + physicalScore) / 3;
+        double avg = ((mathScore + chemistryScore + physicalScore) / 3);
         return avg;
     }
 
 
     @Override
     public String toString() {
-        return "Name: " + getName() + ",Id: " + getId() + ",Age: " + getAge() + ", Avg: " + avg();
+        return "Name: " + getName() + ",Id: " + getId() + ",Age: " + getAge() + ", Avg: " + avg() + " " ;
     }
 }

@@ -47,6 +47,7 @@ public class MainStudent {
                     studentManagement.sortByAvg();
                     break;
                 case 6:
+                    studentManagement.findMaxAvg();
                     break;
                 case 0:
                     System.exit(0);
