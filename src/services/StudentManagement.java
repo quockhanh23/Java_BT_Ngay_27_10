@@ -17,8 +17,18 @@ public class StudentManagement implements Management<Student> {
         studentList = new ArrayList<>();
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
     @Override
     public void print() {
+        System.out.println(String.format("%-5s%-10s%-7s%-10s%-12s%-5s",
+                "ID", "Name", "Age", "Math","Chemistry","Physical"));
         for (int i = 0; i < studentList.size(); i++) {
             System.out.println(studentList.get(i));
         }
@@ -82,12 +92,12 @@ public class StudentManagement implements Management<Student> {
         double max = studentList.get(0).avg();
         int index = 0;
         for (int i = 0; i < studentList.size(); i++) {
-            if (max < studentList.get(i).avg()) ;
-            max = studentList.get(i).avg();
-            index = i;
+            if (max < studentList.get(i).avg()) {
+                max = studentList.get(i).avg();
+                index = i;
+            }
         }
         System.out.println(studentList.get(index));
     }
-
 }
 
