@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class MainStudent {
     public static void main(String[] args) throws IOException {
         StudentManagement studentManagement = new StudentManagement();
-        studentManagement.add(new Student(1, 12, "khánh", 5, 1, 9));
+        studentManagement.add(new Student(1, 12, "khánh55", 5, 1, 9));
         studentManagement.add(new Student(2, 13, "khánh2", 4, 3, 1));
         studentManagement.add(new Student(3, 14, "khánh3", 1, 2, 1));
         studentManagement.add(new Student(4, 15, "khánh4", 10, 1, 1));
@@ -24,11 +24,11 @@ public class MainStudent {
 //            str += student.getMathScore() + ",";
 //            str += student.getChemistryScore() + ",";
 //            str += student.getPhysicalScore();
-//
 //        }
 //        bufferedWriter.write(str);
 //        bufferedWriter.close();
-//
+
+//        StudentManagement studentManagement1 = new StudentManagement();
 //        FileReader fileReader = new FileReader("src/demo.csv");
 //        BufferedReader bufferedReader = new BufferedReader(fileReader);
 //        String line = bufferedReader.readLine();
@@ -38,11 +38,12 @@ public class MainStudent {
 //            String name = arr[1];
 //            int age = Integer.parseInt(arr[2]);
 //            double mathScore  = Double.parseDouble(arr[3]);
-//            double chemistryScore  = Double.parseDouble(arr[3]);
-//            double physicalScore  = Double.parseDouble(arr[3]);
-//            System.out.println(line);
-//            bufferedWriter.close();
+//            double chemistryScore = Double.parseDouble(arr[4]);
+//            double physicalScore = Double.parseDouble(arr[5]);
+//            studentManagement1.add(new Student(id, age , name , mathScore, chemistryScore, physicalScore));
 //        }
+//        bufferedReader.close();
+//        studentManagement1.print();
 
         int choice = -1;
         while (true) {
@@ -59,11 +60,7 @@ public class MainStudent {
                 System.out.println("8. Read from file. ");
                 System.out.println("0. End program. ");
                 choice = scanner.nextInt();
-            } catch (Exception ignored) {
-                System.err.println("Wrong input!. ");
-                System.out.println("Back to menu. ");
-            }
-            try {
+
                 switch (choice) {
                     case 1 -> {
                         System.out.println("Print the list: ");
@@ -98,14 +95,18 @@ public class MainStudent {
                         FileStudent.WriteToFile("demo2.csv", studentManagement.getStudentList());
                     }
                     case 8 -> {
-                        System.out.println("Print info file. ");
-                        studentManagement.setStudentList(FileStudent.readFromFile("demo2.csv"));
+                        System.out.println("Print file. ");
+                        FileStudent.readFromFile("demo2.csv");
+                    }
+                    case 9 -> {
+                        System.out.println("Sort by name. ");
+                        studentManagement.sortByName();
                     }
                     case 0 -> System.exit(0);
                 }
             } catch (Exception e) {
                 System.err.println("Wrong input!. ");
-                System.out.println("Back to menu. ");
+                System.err.println("Back to menu. ");
             }
         }
     }

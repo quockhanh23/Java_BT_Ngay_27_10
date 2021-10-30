@@ -3,6 +3,7 @@ package services;
 import models.Student;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,12 +28,11 @@ public class StudentManagement implements Management<Student> {
 
     @Override
     public void print() {
-        System.out.println(String.format("%-5s%-10s%-7s%-10s%-12s%-5s",
-                "ID", "Name", "Age", "Math","Chemistry","Physical"));
+        System.out.println(String.format("%-5s%-10s%-7s%-10s%-12s%-10s%-5s",
+                "ID", "Name", "Age", "Math", "Chemistry", "Physical", "Avg"));
         for (int i = 0; i < studentList.size(); i++) {
             System.out.println(studentList.get(i));
         }
-
     }
 
     @Override
@@ -55,7 +55,6 @@ public class StudentManagement implements Management<Student> {
     public void update(Student student, int id) {
         int index = findIndexById(id);
         studentList.set(index, student);
-
     }
 
     @Override
@@ -86,6 +85,10 @@ public class StudentManagement implements Management<Student> {
 
     public void sortByAvg() {
         studentList.sort((p1, p2) -> (int) (p1.avg() - p2.avg()));
+    }
+
+    public void sortByName() {
+        studentList.sort(Comparator.comparing(Student::getName));
     }
 
     public void findMaxAvg() {

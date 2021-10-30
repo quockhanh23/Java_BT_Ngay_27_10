@@ -49,7 +49,7 @@ public class Student extends Person {
     @Override
     public String toString() {
 
-        return String.format("%-5s%-10s%-7s%-10s%-12s%-5s",
-                getId(), getName(), getAge(),getMathScore(),getChemistryScore(),getPhysicalScore());
+        return String.format("%-5s%-10s%-7s%-10s%-12s%-10s%-5s",
+                getId(), getName(), getAge(), getMathScore(), getChemistryScore(), getPhysicalScore(), avg());
     }
 }

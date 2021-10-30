@@ -1,4 +1,5 @@
 import models.Student;
+import services.StudentManagement;
 
 import java.io.*;
 import java.util.List;
@@ -24,12 +25,22 @@ public class FileStudent {
     }
 
     public static List<Student> readFromFile(String path) throws IOException {
+        StudentManagement studentManagement1 = new StudentManagement();
         FileReader fileReader = new FileReader(path);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
-        String content = bufferedReader.readLine();
-        while ((content = bufferedReader.readLine()) != null) {
-            System.out.println(content);
+        String line = bufferedReader.readLine();
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] arr = line.split(",");
+            int id = Integer.parseInt(arr[0]);
+            String name = arr[1];
+            int age = Integer.parseInt(arr[2]);
+            double mathScore = Double.parseDouble(arr[3]);
+            double chemistryScore = Double.parseDouble(arr[4]);
+            double physicalScore = Double.parseDouble(arr[5]);
+            studentManagement1.add(new Student(id, age, name, mathScore, chemistryScore, physicalScore));
         }
+        studentManagement1.print();
+        bufferedReader.close();
         return null;
     }
 }
