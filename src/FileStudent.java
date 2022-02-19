@@ -24,7 +24,7 @@ public class FileStudent {
         fileWriter.close();
     }
 
-    public static List<Student> readFromFile(String path) throws IOException {
+    public static List<Student> ReadFromFile(String path) throws IOException {
         StudentManagement studentManagement1 = new StudentManagement();
         FileReader fileReader = new FileReader(path);
         BufferedReader bufferedReader = new BufferedReader(fileReader);

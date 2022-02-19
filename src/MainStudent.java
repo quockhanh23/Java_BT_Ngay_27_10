@@ -12,6 +12,7 @@ public class MainStudent {
         studentManagement.add(new Student(2, 13, "khánh2", 4, 3, 1));
         studentManagement.add(new Student(3, 14, "khánh3", 1, 2, 1));
         studentManagement.add(new Student(4, 15, "khánh4", 10, 1, 1));
+
 //        FileWriter fileWriter = new FileWriter("src/demo.csv");
 //        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 //        String str = "ID, Name, Age, Math score, Chemistry score, physical score";
@@ -96,7 +97,7 @@ public class MainStudent {
                     }
                     case 8 -> {
                         System.out.println("Print file. ");
-                        FileStudent.readFromFile("demo2.csv");
+                        FileStudent.ReadFromFile("demo2.csv");
                     }
                     case 9 -> {
                         System.out.println("Sort by name. ");

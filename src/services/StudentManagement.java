@@ -16,6 +16,7 @@ public class StudentManagement implements Management<Student> {
 
     public StudentManagement() {
         studentList = new ArrayList<>();
+
     }
 
     public List<Student> getStudentList() {
@@ -59,11 +60,8 @@ public class StudentManagement implements Management<Student> {
 
     @Override
     public void deleteById(int id) {
-        for (int i = 0; i < studentList.size(); i++) {
-            if (studentList.get(i).getId() == id) {
-                studentList.remove(id);
-            }
-        }
+        int deleteById = findIndexById(id);
+        studentList.remove(deleteById);
     }
 
     public Student creat() {
@@ -102,5 +100,6 @@ public class StudentManagement implements Management<Student> {
         }
         System.out.println(studentList.get(index));
     }
+
 }
 
