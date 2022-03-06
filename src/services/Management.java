@@ -1,6 +1,7 @@
 package services;
 
 public interface Management<T> {
+
     void print();
 
     void add(T t);

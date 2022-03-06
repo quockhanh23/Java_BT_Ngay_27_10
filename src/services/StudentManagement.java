@@ -2,28 +2,23 @@ package services;
 
 import models.Student;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class StudentManagement implements Management<Student> {
-    private List<Student> studentList = new ArrayList<>();
+    private AbstractList<Student> studentList = new ArrayList<>();
 
-    public StudentManagement(List<Student> studentList) {
+    public StudentManagement(AbstractList<Student> studentList) {
         this.studentList = studentList;
     }
 
     public StudentManagement() {
-        studentList = new ArrayList<>();
-
     }
 
-    public List<Student> getStudentList() {
+    public AbstractList<Student> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<Student> studentList) {
+    public void setStudentList(AbstractList<Student> studentList) {
         this.studentList = studentList;
     }
 
